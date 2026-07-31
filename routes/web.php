@@ -7,7 +7,7 @@ use App\Http\Controllers\AnnouncementController;
 Route::get('/', [PublicController::class, 'welcome'])
     ->name('home');
 
-Route::view('/announcements/create', 'announcements.create')
+Route::get('/announcements/create', [AnnouncementController::class, 'create'])
     ->middleware('auth')
     ->name('announcements.create');
 

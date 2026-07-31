@@ -25,4 +25,9 @@ class AnnouncementController extends Controller
 
         return view('announcements.byCategory', [ 'announcements' => $category->announcements(), 'category' => $category]);
     }
+
+    public function create()
+{
+    return view('announcements.create');
+}
 }

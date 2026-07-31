@@ -1,50 +1,5 @@
-<?php
 
-use App\Models\Announcement;
-use App\Models\Category;
-use Livewire\Component;
-
-new class extends Component
-{
-    public string $title = '';
-
-    public string $price = '';
-
-    public string $description = '';
-
-    public string $category_id = '';
-
-    public $categories;
-
-    public function mount(): void
-    {
-        $this->categories = Category::orderBy('name')->get();
-    }
-
-    public function save(): void
-    {
-        $validated = $this->validate([
-            'title' => ['required', 'string', 'max:255'],
-            'price' => ['required', 'numeric', 'min:0'],
-            'description' => ['required', 'string', 'min:10'],
-            'category_id' => ['required', 'exists:categories,id'],
-        ]);
-
-        Announcement::create([
-            'title' => $validated['title'],
-            'price' => $validated['price'],
-            'description' => $validated['description'],
-            'category_id' => $validated['category_id'],
-            'user_id' => auth()->id(),
-        ]);
-
-        $this->reset('title', 'price', 'description', 'category_id');
-        session()->flash('success', 'Annuncio inserito correttamente.');
-    }
-};
-?>
-
-<div class="form-shell">
+    <div class="form-shell">
     @if (session('success'))
         <div class="success-message">{{ session('success') }}</div>
     @endif
@@ -84,3 +39,5 @@ new class extends Component
         </button>
     </form>
 </div>
+
+
