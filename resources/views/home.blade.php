@@ -1,4 +1,13 @@
 <x-layouts.app title="Presto - Annunci">
+
+    @if (session()->has('errorMessage'))
+        <div class=" alert alert-danger text-center shadow rounded">
+            {{ session('errorMessage', 'Si è verificato un errore.') }}
+        </div>
+    @endif
+
+
+
     <section class="hero">
         <div>
             <p class="eyebrow">Mercatino online</p>

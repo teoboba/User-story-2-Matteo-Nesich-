@@ -4,6 +4,7 @@
         <div class="col-12">
             <h1 class="display-1">Tutti gli articoli</h1>
         </div>
+    </div>
     <div class="row height-custom justify-content-center align-items-center py-5">
         @forelse ($announcements as $announcement)
             <div class="col-12 col-md-3">

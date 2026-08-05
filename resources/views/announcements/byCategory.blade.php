@@ -7,7 +7,7 @@
             </div>
         </div>
 
-        <div calss="row height-custom justify-content-center align-items-center py-5">
+        <div class="row height-custom justify-content-center align-items-center py-5">
             @forelse ($announcements as $announcement)
                 <div class="col-12 col-md-6">
                     <x-card :announcement="$announcement" />
