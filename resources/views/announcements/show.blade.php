@@ -9,7 +9,7 @@
         </div>
         <div class="row height-custom justify-content-center py-5">
             <div class="col-12 col-md-6 mb-3">
-                <div id="carouselExample" class="carousel slide"></div>
+                <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="https://picsum.photos/400" class="d-block w-100 rounded shadow" alt="...">

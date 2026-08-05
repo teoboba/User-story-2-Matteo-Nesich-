@@ -35,31 +35,18 @@
         </ul>
     </li>
 
-        @auth
-            <span class="auth-status">
-                Sei loggato
-            </span>
 
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
+    @auth
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit" class="link-button">Logout</button>
+    </form>
+@else
+    <span class="auth-message">Non hai ancora un account?</span>
+    <a href="{{ route('login') }}">Login</a>
+    <a href="{{ route('register') }}">Registrati</a>
+@endauth
 
-                <button type="submit" class="link-button">
-                    Logout
-                </button>
-            </form>
-        @else
-            <span class="auth-status">
-                Effettua la registrazione
-            </span>
-
-            <a href="{{ route('login') }}">
-                Login
-            </a>
-
-            <a href="{{ route('register') }}">
-                Registrati
-            </a>
-        @endauth
     </nav>
 </header>
 </div>
