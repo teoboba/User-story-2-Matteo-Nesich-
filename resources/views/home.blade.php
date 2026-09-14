@@ -1,5 +1,13 @@
 <x-layouts.app title="Presto - Annunci">
 
+    @if (session('message'))
+    <div class="container mt-4">
+        <div class="alert alert-success text-center">
+            {{ session('message') }}
+        </div>
+    </div>
+@endif
+
     @if (session()->has('errorMessage'))
         <div class=" alert alert-danger text-center shadow rounded">
             {{ session('errorMessage', 'Si è verificato un errore.') }}

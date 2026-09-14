@@ -11,18 +11,21 @@ use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use App\Models\User;
 
+
 class BecomeRevisor extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
+    public User $user;
+    public string $motivation;
 
     /**
      * Create a new message instance.
      */
-    public function __construct(User $user)
+    public function __construct(User $user, string $motivation)
     {
         $this->user = $user;
+        $this->motivation = $motivation;
     }
 
 

@@ -30,7 +30,14 @@ Route::get('/announcements/create', [AnnouncementController::class, 'create'])
     Route::patch('reject/{announcement}', [RevisorController::class, 'reject'])->middleware('isRevisor')
     ->name('reject');
 
-    Route::get('/revisor/request', [RevisorController::class, 'becomeRevisor'])->middleware('auth')
-    ->name('become.revisor');
 
 Route::get('make/revisor/{user}', [RevisorController::class, 'makeRevisor'])->name('make.revisor');
+
+
+Route::get('/lavora-con-noi', [RevisorController::class, 'createRequest'])
+    ->middleware('auth')
+    ->name('revisor.request');
+
+    Route::post('/lavora-con-noi', [RevisorController::class, 'becomeRevisor'])
+    ->middleware('auth')
+    ->name('become.revisor');
