@@ -9,8 +9,10 @@
         "php": "^8.3",
         "laravel/fortify": "^1.36",
         "laravel/framework": "^13.8",
+        "laravel/scout": "^11.7",
         "laravel/tinker": "^3.0",
-        "livewire/livewire": "^4.3"
+        "livewire/livewire": "^4.3",
+        "teamtnt/laravel-scout-tntsearch-driver": "^16.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

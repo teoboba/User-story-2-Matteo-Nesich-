@@ -41,3 +41,5 @@ Route::get('/lavora-con-noi', [RevisorController::class, 'createRequest'])
     Route::post('/lavora-con-noi', [RevisorController::class, 'becomeRevisor'])
     ->middleware('auth')
     ->name('become.revisor');
+
+    Route::get('/search/announcements', [PublicController::class, 'searchAnnouncements'])->name('announcements.search');

@@ -5,6 +5,19 @@
     </a>
 
     <nav class="nav">
+
+<form class="d-felx ms-auto" role="search" action="{{ route('announcements.search') }}" method="GET">
+    <div class="input-group">
+        <input type="search" name="query" class="form-control" placeholder="search" aria-label="search">
+        <button type="submit" class="input-group-text btn btn-outline-success" id="basic-addon2">
+            Search
+        </button>
+    </div>
+
+
+</form>
+
+
         <a href="{{ route('announcements.create') }}">
             Inserisci annuncio
         </a>

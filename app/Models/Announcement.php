@@ -5,11 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Laravel\Scout\Searchable;
 
 
 #[Fillable(['title', 'price', 'description', 'category_id', 'user_id'])]
 class Announcement extends Model
 {
+
+use searchable;
+
+public function toSearchableArray()
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'description' => $this->description,
+            'category' => $this->category,
+
+        ];
+    }
+
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
