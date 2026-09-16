@@ -34,6 +34,40 @@
             @error('description') <span class="error">{{ $message }}</span> @enderror
         </label>
 
+        <input type="file" wire:model="temporary_images" multiple>
+
+@error('temporary_images.*')
+    <span class="error">{{ $message }}</span>
+@enderror
+
+@error('temporary_images')
+    <span class="error">{{ $message }}</span>
+@enderror
+
+@if (!empty($images))
+    <div class="row">
+        @foreach ($images as $key => $image)
+            <div
+                class="col"
+                wire:key="image-{{ $key }}"
+            >
+                <div
+                    class="img-preview"
+                    style="background-image: url('{{ $image->temporaryUrl() }}')"
+                ></div>
+
+                <button
+                    type="button"
+                    wire:click="removeImage({{ $key }})"
+                >
+                    X
+                </button>
+            </div>
+        @endforeach
+    </div>
+@endif
+
+
         <button type="submit" class="primary-button" wire:loading.attr="disabled">
             Inserisci annuncio
         </button>

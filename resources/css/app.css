@@ -201,6 +201,14 @@ textarea {
     font-weight: 700;
 }
 
+.img-preview {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 120px;
+    width: 120px;
+}
+
 .success-message {
     background: #ffff00;
     border: 1px solid #111827;

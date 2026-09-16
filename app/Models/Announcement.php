@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Laravel\Scout\Searchable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
 #[Fillable(['title', 'price', 'description', 'category_id', 'user_id'])]
@@ -24,6 +25,11 @@ public function toSearchableArray()
 
         ];
     }
+
+    public function images(): HasMany
+{
+    return $this->hasMany(Image::class);
+}
 
 
     public function category(): BelongsTo
