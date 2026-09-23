@@ -16,6 +16,15 @@ class Image extends Model
         'announcement_id',
     ];
 
+protected function casts(): array
+    {
+        return [
+            'labels' => 'array',
+        ];
+    }
+
+
+
     public function announcement(): BelongsTo
     {
         return $this->belongsTo(Announcement::class);

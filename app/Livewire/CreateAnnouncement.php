@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Jobs\ResizeImage;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\File;
+use App\Jobs\GoogleVisionSafeSearch;
+use App\Jobs\GoogleVisionLabelImage;
+
 
 class CreateAnnouncement extends Component
 {
@@ -96,6 +99,8 @@ public function mount(): void
         ]);
 
         dispatch(new ResizeImage($newImage->path, 300, 300));
+        dispatch(new GoogleVisionSafeSearch($newImage->id));
+        dispatch(new GoogleVisionLabelImage($newImage->id));
     }
 
     File::deleteDirectory(storage_path('/app/livewire-tmp'));
@@ -105,6 +110,9 @@ public function mount(): void
 
 session()->flash('success', 'Annuncio inserito correttamente.');
 $this->cleanForm();
+
+
+
 
     }
 
