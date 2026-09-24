@@ -15,7 +15,7 @@
     @foreach ($announcement->images as $key => $image)
         <div class="carousel-item @if ($loop->first) active @endif">
             <img
-                src="{{ $image->getUrl(300, 300) }}"
+                src="{{ $image->getUrl() }}"
                 class="d-block w-100 rounded shadow"
                 alt="Immagine {{ $key + 1 }} dell'annuncio {{ $announcement->title }}"
             >
