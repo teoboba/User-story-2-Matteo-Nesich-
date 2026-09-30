@@ -9,6 +9,7 @@ use Spatie\Image\Enums\CropPosition;
 use Spatie\Image\Enums\ImageDriver;
 use Spatie\Image\Enums\AlignPosition;
 use Spatie\Image\Enums\Unit;
+use Spatie\Image\Enums\Fit;
 
 
 
@@ -16,8 +17,12 @@ class ResizeImage implements ShouldQueue
 {
     use Queueable;
 
-    private $w, $h, $fileName, $path;
-    public function __construct($filePath, $w, $h)
+private int $w;
+private int $h;
+private string $fileName;
+private string $path;
+
+public function __construct(string $filePath, int $w, int $h)
     {
         $this->path = dirname($filePath);
         $this->fileName = basename($filePath);
@@ -39,7 +44,7 @@ class ResizeImage implements ShouldQueue
 
 Image::useImageDriver(ImageDriver::Gd)
     ->load($srcPath)
-    ->crop($w, $h, CropPosition::Center)
+    ->fit(Fit::Max, $w, $h)
     ->watermark(
         base_path('resources/img/watermark.png'),
         AlignPosition::BottomRight,

@@ -227,6 +227,23 @@ textarea {
     width: 100%;
 }
 
+
+.card-w .card-img-top {
+    width: 100%;
+    height: 240px;
+    object-fit: contain;
+    background-color: #f7f7f4;
+}
+
+
+#carouselExample .carousel-item img {
+    width: 100%;
+    height: clamp(260px, 50vw, 500px);
+    object-fit: contain;
+    background-color: #f7f7f4;
+}
+
+
 @media (max-width: 640px) {
     .site-header {
         align-items: flex-start;
